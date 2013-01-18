@@ -1,0 +1,24 @@
+{
+  "name": "haversine",
+  "version": "0.0.1",
+  "description": "A simple haversine module",
+  "main": "haversine.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/niix/haversine"
+  },
+  "keywords": [
+    "haversine",
+    "distance",
+    "coordinates",
+    "geolocation"
+  ],
+  "author": "Nick Justice (niix)",
+  "license": "MIT"
+}
