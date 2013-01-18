@@ -13,7 +13,7 @@ I created this small module for an application I created and figured I would pac
 
     start = {
       latitude: 10,
-      longitude: 11,
+      longitude: 11
     }
     end = {
       latitude: 11,
