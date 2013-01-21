@@ -20,8 +20,8 @@ I created this small module for an application I created and figured I would pac
       longitude: 10
     }
 
-    console.log(haversine(start, stop))
-    console.log(haversine(start, stop, {unit: 'km'}))
+    console.log(haversine(start, end))
+    console.log(haversine(start, end, {unit: 'km'}))
 
 ## Future
 I plan on adding more options soon including a threshold check.
