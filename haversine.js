@@ -14,7 +14,7 @@ var haversine = (function() {
     var km    = 6371
     options   = options || {}
 
-    R = options.unit === 'km' ? km : miles
+    var R = options.unit === 'km' ? km : miles
 
     var dLat = toRad(end.latitude - start.latitude)
     var dLon = toRad(end.longitude - start.longitude)
