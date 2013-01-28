@@ -25,7 +25,11 @@ var haversine = (function() {
             Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2)
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
 
-    return R * c
+    if (options.threshold) {
+      return options.threshold > (R * c) ? true : false
+    } else {
+      return R * c
+    }     
   }
 
 })()

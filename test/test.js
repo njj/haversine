@@ -1,13 +1,13 @@
 var haversine = require('../haversine');
 
 start = {
-  latitude: 50.03,
-  longitude: 05
+  latitude: 30.849635,
+  longitude: -83.24559
 }
 
 end = {
-  latitude: 58.38,
-  longitude: 03
+  latitude: 27.950575,
+  longitude: -82.457178
 }
 
 // inserting values directly
@@ -18,3 +18,9 @@ console.log(haversine(start, end))
 
 // using objects with unit conversion
 console.log(haversine(start, end, {unit: 'km'}))
+
+// utilizing the threshold option
+console.log(haversine(start, end, {threshold: 1}))
+
+// utilizing the threshold option & unit conversion
+console.log(haversine(start, end, {threshold: 1, unit: 'km'}))

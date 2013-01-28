@@ -12,16 +12,15 @@ I created this small module for an application I created and figured I would pac
     var haversine = require('haversine')
 
     start = {
-      latitude: 10,
-      longitude: 11
+      latitude: 30.849635,
+      longitude: -83.24559
     }
     end = {
-      latitude: 11,
-      longitude: 10
+      latitude: 27.950575,
+      longitude: -82.457178
     }
 
     console.log(haversine(start, end))
     console.log(haversine(start, end, {unit: 'km'}))
-
-## Future
-I plan on adding more options soon including a threshold check.
+    console.log(haversine(start, end, {threshold: 1}))
+    console.log(haversine(start, end, {threshold: 1, unit: 'km'}))
