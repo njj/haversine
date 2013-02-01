@@ -26,7 +26,7 @@ var haversine = (function() {
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
 
     if (options.threshold) {
-      return options.threshold > (R * c) ? true : false
+      return options.threshold > (R * c)
     } else {
       return R * c
     }     
