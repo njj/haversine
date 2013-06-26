@@ -24,3 +24,6 @@ I created this small module for an application I created and figured I would pac
     console.log(haversine(start, end, {unit: 'km'}))
     console.log(haversine(start, end, {threshold: 1}))
     console.log(haversine(start, end, {threshold: 1, unit: 'km'}))
+    
+-
+[MIT Licence](http://opensource.org/licenses/MIT)
