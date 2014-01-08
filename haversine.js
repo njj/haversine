@@ -29,7 +29,7 @@ var haversine = (function() {
       return options.threshold > (R * c)
     } else {
       return R * c
-    }     
+    }
   }
 
 })()
