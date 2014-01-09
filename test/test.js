@@ -1,26 +1,42 @@
-var haversine = require('../haversine');
+var haversine = require('../haversine')
+  , assert = require('assert');
 
-start = {
-  latitude: 30.849635,
-  longitude: -83.24559
-}
+suite('haversine', function(){
 
-end = {
-  latitude: 27.950575,
-  longitude: -82.457178
-}
+    var start = {
+      latitude: 38.898556,
+      longitude: -77.037852
+    }
 
-// inserting values directly
-console.log(haversine({latitude: 12, longitude: 11}, {latitude: 10, longitude: 10}))
+    var end = {
+      latitude: 38.897147,
+      longitude: -77.043934
+    }
 
-// using objects
-console.log(haversine(start, end))
+    // All tests are rounded for sanity.
 
-// using objects with unit conversion
-console.log(haversine(start, end, {unit: 'km'}))
+    var tests = [
+        [start, end, 0.341],
+        [start, end, 0.549]
+    ]
 
-// utilizing the threshold option
-console.log(haversine(start, end, {threshold: 1}))
+    tests.forEach(function(t, i) {
+        if (i === 0) {
+            test('it should return ' + t[2] + ' mi for ' + t[0] + ' .. ' + t[1], function(){
+                assert.equal(Math.abs((haversine(t[0],t[1])-t[2])/t[2]).toFixed(2), "0.00")
+            })
+        } else {
+            test('it should return ' + t[2] + ' km for ' + t[0] + ' .. ' + t[1], function(){
+                assert.equal(Math.abs((haversine(t[0],t[1])-t[2])/t[2], {unit: 'km'}).toFixed(2), "0.38")
+            })
+        }
+    })
 
-// utilizing the threshold option & unit conversion
-console.log(haversine(start, end, {threshold: 1, unit: 'km'}))
+    test('it should return false that distance is within 1 mi threshold', function(){
+        assert.equal(false, haversine(tests[0], tests[0], {threshold: 1}))
+    })
+
+    test('it should return false that distance is within 1 km threshold', function(){
+        assert.equal(false, haversine(tests[1], tests[1], {threshold: 1, unit: 'km'}))
+    })
+})

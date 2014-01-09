@@ -20,5 +20,8 @@
     "geolocation"
   ],
   "author": "Nick Justice (niix)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "*"
+  }
 }
