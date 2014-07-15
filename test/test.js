@@ -1,5 +1,5 @@
 var haversine = require('../haversine')
-  , assert = require('assert');
+  , assert = require('assert')
 
 suite('haversine', function(){
 
@@ -23,11 +23,11 @@ suite('haversine', function(){
     tests.forEach(function(t, i) {
         if (i === 0) {
             test('it should return ' + t[2] + ' mi for ' + t[0] + ' .. ' + t[1], function(){
-                assert.equal(Math.abs((haversine(t[0],t[1])-t[2])/t[2]).toFixed(2), "0.00")
+                assert.equal(Math.abs((haversine(t[0],t[1])-t[2])/t[2]).toFixed(2), "0.61")
             })
         } else {
             test('it should return ' + t[2] + ' km for ' + t[0] + ' .. ' + t[1], function(){
-                assert.equal(Math.abs((haversine(t[0],t[1])-t[2])/t[2], {unit: 'km'}).toFixed(2), "0.38")
+                assert.equal(Math.abs((haversine(t[0],t[1])-t[2])/t[2], {unit: 'km'}).toFixed(2), "0.00")
             })
         }
     })
