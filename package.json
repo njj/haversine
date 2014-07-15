@@ -1,13 +1,13 @@
 {
   "name": "haversine",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "A simple haversine module",
   "main": "haversine.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "./test/test.js"
+    "test": "mocha test/test.js --ui tdd"
   },
   "repository": {
     "type": "git",
