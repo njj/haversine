@@ -36,4 +36,6 @@ var haversine = (function() {
 
 })()
 
-module.exports = haversine
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = haversine
+}

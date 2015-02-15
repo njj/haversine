@@ -1,0 +1,11 @@
+{
+  "name": "haversine",
+  "description": "A simple haversine module",
+  "version": "1.0.0",
+  "keywords": [
+    "haversine",
+    "distance",
+    "coordinates",
+    "geolocation"
+  ]
+}
