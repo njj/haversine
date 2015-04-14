@@ -10,13 +10,16 @@ var haversine = (function() {
   }
 
   return function haversine(start, end, options) {
-    var km    = 6371
-    var mile  = 3960
+    var earth_radius = {
+      'km': 6371,
+      'meter': 6371000,
+      'mile': 3960
+    };
     options   = options || {}
 
-    var R = options.unit === 'mile' ?
-      mile :
-      km
+    var R = earth_radius['km'];
+    if(options.unit in earth_radius)
+      R = earth_radius[options.unit];
 
     var dLat = toRad(end.latitude - start.latitude)
     var dLon = toRad(end.longitude - start.longitude)
