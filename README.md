@@ -1,13 +1,11 @@
 # Haversine
 A simple haversine formula module for Node.js
 
-I created this small module for an application I created and figured I would package it up to share.
-
 ## Installation
 `$ npm install haversine`
 
 ## Usage
-### haversine(start, end, options)
+### haversine (start, end, options)
 
     var haversine = require('haversine')
 
@@ -21,9 +19,16 @@ I created this small module for an application I created and figured I would pac
     }
 
     console.log(haversine(start, end))
-    console.log(haversine(start, end, {unit: 'km'}))
+    console.log(haversine(start, end, {unit: 'mile'}))
+    console.log(haversine(start, end, {unit: 'meter'}))
     console.log(haversine(start, end, {threshold: 1}))
-    console.log(haversine(start, end, {threshold: 1, unit: 'km'}))
-    
--
+    console.log(haversine(start, end, {threshold: 1, unit: 'mile'}))
+    console.log(haversine(start, end, {threshold: 1, unit: 'meter'}))
+
+
+#### api
+- `options.unit` - Unit of measurement applied to result (default `km`)
+- `options.threshold` - If passed, will result in library returning `boolean` value of whether or not the start and end points are within that supplied threshold.  (default `null`)
+
+
 [MIT License](http://opensource.org/licenses/MIT)

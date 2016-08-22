@@ -1,22 +1,22 @@
-// haversine
-// By Nick Justice (niix)
-// https://github.com/niix/haversine
-
-var haversine = (function() {
+var haversine = (function () {
 
   // convert to radians
-  var toRad = function(num) {
+  var toRad = function (num) {
     return num * Math.PI / 180
   }
 
-  return function haversine(start, end, options) {
-    var km    = 6371
-    var mile  = 3960
+  return function haversine (start, end, options) {
     options   = options || {}
 
-    var R = options.unit === 'mile' ?
-      mile :
-      km
+    var radii = {
+      km:    6371,
+      mile:  3960,
+      meter: 6371000
+    }
+
+    var R = options.unit in radii
+      ? radii[options.unit]
+      : radii.km
 
     var dLat = toRad(end.latitude - start.latitude)
     var dLon = toRad(end.longitude - start.longitude)
@@ -29,9 +29,9 @@ var haversine = (function() {
 
     if (options.threshold) {
       return options.threshold > (R * c)
-    } else {
-      return R * c
     }
+
+    return R * c
   }
 
 })()
