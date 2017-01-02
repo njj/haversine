@@ -11,7 +11,8 @@ var haversine = (function () {
     var radii = {
       km:    6371,
       mile:  3960,
-      meter: 6371000
+      meter: 6371000,
+      nmi:   3440
     }
 
     var R = options.unit in radii
