@@ -7,13 +7,14 @@ A simple haversine formula module for Node.js
 ## Usage
 ### haversine (start, end, options)
 
-    var haversine = require('haversine')
+    const haversine = require('haversine')
 
-    start = {
+    const start = {
       latitude: 30.849635,
       longitude: -83.24559
     }
-    end = {
+
+    const end = {
       latitude: 27.950575,
       longitude: -82.457178
     }
@@ -27,7 +28,7 @@ A simple haversine formula module for Node.js
 
 
 #### api
-- `options.unit` - Unit of measurement applied to result (default `km`)
+- `options.unit` - Unit of measurement applied to result (default `km`, available `km, mile, meter, nmi`)
 - `options.threshold` - If passed, will result in library returning `boolean` value of whether or not the start and end points are within that supplied threshold.  (default `null`)
 
 
