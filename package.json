@@ -3,6 +3,7 @@
   "version": "1.0.2",
   "description": "A simple haversine module",
   "main": "haversine.js",
+  "types": "index.d.ts",
   "directories": {
     "test": "test"
   },
