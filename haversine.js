@@ -5,7 +5,23 @@ var haversine = (function () {
     return num * Math.PI / 180
   }
 
-  return function haversine (start, end, options) {
+  // convert coordinates to standard format based on the passed format option
+  var convertCoordinates = function (format, coordinates) {
+    switch (format) {
+    case '[lat,lon]':
+      return { latitude: coordinates[0], longitude: coordinates[1] }
+    case '[lon,lat]':
+      return { latitude: coordinates[1], longitude: coordinates[0] }
+    case '{lon,lat}':
+      return { latitude: coordinates.lat, longitude: coordinates.lon }
+    case 'geojson':
+      return { latitude: coordinates.geometry.coordinates[1], longitude: coordinates.geometry.coordinates[0] }
+    default:
+      return coordinates
+    }
+  }
+
+  return function haversine (startCoordinates, endCoordinates, options) {
     options   = options || {}
 
     var radii = {
@@ -18,6 +34,9 @@ var haversine = (function () {
     var R = options.unit in radii
       ? radii[options.unit]
       : radii.km
+
+    var start = convertCoordinates(options.format, startCoordinates)
+    var end = convertCoordinates(options.format, endCoordinates)
 
     var dLat = toRad(end.latitude - start.latitude)
     var dLon = toRad(end.longitude - start.longitude)
