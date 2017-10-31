@@ -1,4 +1,10 @@
 var haversine = (function () {
+  var RADII = {
+    km:    6371,
+    mile:  3960,
+    meter: 6371000,
+    nmi:   3440
+  }
 
   // convert to radians
   var toRad = function (num) {
@@ -24,16 +30,9 @@ var haversine = (function () {
   return function haversine (startCoordinates, endCoordinates, options) {
     options   = options || {}
 
-    var radii = {
-      km:    6371,
-      mile:  3960,
-      meter: 6371000,
-      nmi:   3440
-    }
-
-    var R = options.unit in radii
-      ? radii[options.unit]
-      : radii.km
+    var R = options.unit in RADII
+      ? RADII[options.unit]
+      : RADII.km
 
     var start = convertCoordinates(options.format, startCoordinates)
     var end = convertCoordinates(options.format, endCoordinates)
