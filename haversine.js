@@ -20,6 +20,8 @@ var haversine = (function () {
       return { latitude: coordinates[1], longitude: coordinates[0] }
     case '{lon,lat}':
       return { latitude: coordinates.lat, longitude: coordinates.lon }
+    case '{lat,lng}':
+      return { latitude: coordinates.lat, longitude: coordinates.lng }
     case 'geojson':
       return { latitude: coordinates.geometry.coordinates[1], longitude: coordinates.geometry.coordinates[0] }
     default:

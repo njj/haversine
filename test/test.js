@@ -13,6 +13,10 @@ suite('haversine', function(){
       lat: 38.898556,
       lon: -77.037852
     }
+    var startLatLngObject = {
+      lat: 38.898556,
+      lng: -77.037852
+    }
     var startGeoJson = {
       geometry: {
         coordinates: [-77.037852, 38.898556]
@@ -28,6 +32,10 @@ suite('haversine', function(){
     var endLatLonObject = {
       lat: 38.897147,
       lon: -77.043934
+    }
+    var endLatLngObject = {
+      lat: 38.897147,
+      lng: -77.043934
     }
     var endGeoJson = {
       geometry: {
@@ -46,6 +54,8 @@ suite('haversine', function(){
         [startLonLat, endLonLat, 0.549, { format: '[lon,lat]' }],
         [startLatLonObject, endLatLonObject, 0.341, { format: '{lon,lat}' }],
         [startLatLonObject, endLatLonObject, 0.549, { format: '{lon,lat}' }],
+        [startLatLngObject, endLatLngObject, 0.341, { format: '{lat,lng}' }],
+        [startLatLngObject, endLatLngObject, 0.549, { format: '{lat,lng}' }],
         [startGeoJson, endGeoJson, 0.341, { format: 'geojson' }],
         [startGeoJson, endGeoJson, 0.549, { format: 'geojson' }],
     ]
