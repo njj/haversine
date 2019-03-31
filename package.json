@@ -1,12 +1,16 @@
 {
   "name": "haversine",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "A simple haversine module",
-  "main": "haversine.js",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "directories": {
     "test": "test"
   },
   "scripts": {
+    "prepublish": "npm run build",
+    "build": "tsc",
+    "lint": "tslint 'src/**/*.ts'",
     "test": "mocha test/test.js --ui tdd"
   },
   "repository": {
@@ -22,6 +26,10 @@
   "author": "Nick Justice (niix)",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "*"
+    "@types/node": "^11.12.2",
+    "mocha": "*",
+    "ts-node": "^8.0.3",
+    "tslint": "^5.14.0",
+    "typescript": "^3.4.1"
   }
 }

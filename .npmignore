@@ -1,3 +1,8 @@
 node_modules
 .DS_Store
 npm-debug.log
+src
+tsconfig.json
+tslint.json
+.eslintrc
+test
