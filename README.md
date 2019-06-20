@@ -34,11 +34,11 @@ A simple haversine formula module for Node.js
 
 | Format        | Example
 | ------------- |--------------------------|
-| `undefined` (default) | `{ latitude: 30.849635, longitude: -83.24559] }`
+| `undefined` (default) | `{ latitude: 30.849635, longitude: -83.24559 }`
 | `[lat,lon]`   | `[30.849635, -83.24559]`
 | `[lon,lat]`   | `[-83.24559, 30.849635]`
-| `{lon,lat}`   | `{ lat: 30.849635, lon: -83.24559] }`
-| `{lat,lng}`   | `{ lat: 30.849635, lng: -83.24559] }`
+| `{lon,lat}`   | `{ lat: 30.849635, lon: -83.24559 }`
+| `{lat,lng}`   | `{ lat: 30.849635, lng: -83.24559 }`
 | `geojson`     | `{ type: 'Feature', geometry: { coordinates: [-83.24559, 30.849635] } }`
 
 
