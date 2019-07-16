@@ -30,7 +30,7 @@ var haversine = (function () {
   }
 
   return function haversine (startCoordinates, endCoordinates, options) {
-    options   = options || {}
+    options = options || {}
 
     var R = options.unit in RADII
       ? RADII[options.unit]
@@ -44,15 +44,16 @@ var haversine = (function () {
     var lat1 = toRad(start.latitude)
     var lat2 = toRad(end.latitude)
 
-    var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-            Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2)
-    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
+    var sinLat2 = Math.pow(Math.sin(dLat/2), 2)
+    var sinLon2 = Math.pow(Math.sin(dLon/2), 2)
+    var a = sinLat2 + sinLon2 * Math.cos(lat1) * Math.cos(lat2)
+    var dist = 2 * R * Math.asin(Math.sqrt(a))
 
     if (options.threshold) {
-      return options.threshold > (R * c)
+      return options.threshold > dist
     }
 
-    return R * c
+    return dist
   }
 
 })()
