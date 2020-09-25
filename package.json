@@ -1,17 +1,19 @@
 {
   "name": "haversine",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "A simple haversine module",
-  "main": "haversine.js",
+  "main": "dist/haversine.js",
+  "typings": "dist/index.d.ts",
   "directories": {
     "test": "test"
   },
   "scripts": {
+    "build": "tsc",
     "test": "mocha test/test.js --ui tdd"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/niix/haversine"
+    "url": "https://github.com/njj/haversine"
   },
   "keywords": [
     "haversine",
@@ -19,9 +21,13 @@
     "coordinates",
     "geolocation"
   ],
-  "author": "Nick Justice (niix)",
+  "author": "Nick Justice (njj)",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "*",
+    "typescript": "^4.0.2"
+  },
+  "dependencies": {
+    "@types/node": "^14.6.4"
   }
 }
