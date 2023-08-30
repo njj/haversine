@@ -1,36 +1,50 @@
 # Haversine
+
 A simple haversine formula module for Node.js
 
 ## Installation
-`$ npm install haversine`
+
+`npm install haversine` or `yarn add haversine`
 
 ## Usage
+
 ### haversine (start, end, options)
 
-    const haversine = require('haversine')
+```js
+const haversine = require('haversine');
+// import haversine from 'haversine';
 
-    const start = {
-      latitude: 30.849635,
-      longitude: -83.24559
-    }
+const start = {
+  latitude: 30.849635,
+  longitude: -83.24559
+};
 
-    const end = {
-      latitude: 27.950575,
-      longitude: -82.457178
-    }
+const end = {
+  latitude: 27.950575,
+  longitude: -82.457178
+};
 
-    console.log(haversine(start, end))
-    console.log(haversine(start, end, {unit: 'mile'}))
-    console.log(haversine(start, end, {unit: 'meter'}))
-    console.log(haversine(start, end, {threshold: 1}))
-    console.log(haversine(start, end, {threshold: 1, unit: 'mile'}))
-    console.log(haversine(start, end, {threshold: 1, unit: 'meter'}))
+console.log(haversine(start, end)); // unit: 'km'
+// 331.281531778995
+console.log(haversine(start, end, { unit: 'mile' }));
+// 205.91349330479048
+console.log(haversine(start, end, { unit: 'meter' }));
+// 331281.531778995
+console.log(haversine(start, end, { threshold: 1 }));
+// false
+console.log(haversine(start, end, { threshold: 1, unit: 'mile' }));
+// false
+console.log(haversine(start, end, { threshold: 1, unit: 'meter' }));
+// false
+```
 
+#### API Reference
 
-#### api
-- `options.unit` - Unit of measurement applied to result (default `km`, available `km, mile, meter, nmi`)
-- `options.threshold` - If passed, will result in library returning `boolean` value of whether or not the start and end points are within that supplied threshold.  (default `null`)
-- `options.format` - The format of start and end coordinate arguments. See table below for available values. (default `null`)
+- `options.unit = 'km'` - Unit of measurement applied to result { `km` for kilometer, `mile`, `meter`, `nmi` for nautical mile }
+  - if invalid, the function will throw a TypeError
+- `options.threshold = undefined` - If a number is provided, the funciton will return a boolean indicating if the two points are within this distance
+- `options.format = undefined` - The format of start and end coordinate arguments. See table below for available values.
+  - if invalid, the function will throw a TypeError
 
 | Format        | Example
 | ------------- |--------------------------|
@@ -40,6 +54,5 @@ A simple haversine formula module for Node.js
 | `{lon,lat}`   | `{ lat: 30.849635, lon: -83.24559 }`
 | `{lat,lng}`   | `{ lat: 30.849635, lng: -83.24559 }`
 | `geojson`     | `{ type: 'Feature', geometry: { coordinates: [-83.24559, 30.849635] } }`
-
 
 [MIT License](http://opensource.org/licenses/MIT)
